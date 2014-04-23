@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ru0xdc.sfts.client.MainActivity">
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:max="5"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp" />
+
+    <Button
+        android:id="@+id/button_load"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progress"
+        android:onClick="runTest"
+        android:text="@string/button_load" />
+
+    <TextView
+        android:id="@+id/error"
+        style="@style/InfoText"
+        android:layout_below="@id/button_load"
+        android:textColor="#ff0000"
+        android:visibility="gone"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="8dp"
+        tools:visibility="visible"
+        tools:text="RIL not available" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/error"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:scrollbarStyle="outsideInset"
+        android:clipToPadding="false" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/cpSwVersion"
+                style="@style/InfoText"
+                android:layout_marginTop="0dp"
+                tools:text="blablabla" />
+
+            <TextView
+                android:id="@+id/ftaSwVersion"
+                tools:text="blablabla"
+                style="@style/InfoText" />
+
+            <TextView
+                android:id="@+id/ftaHwVersion"
+                tools:text="blablabla"
+                style="@style/InfoText" />
+
+            <TextView
+                android:id="@+id/versionAll"
+                tools:text="blablabla"
+                style="@style/InfoText" />
+
+            <TextView
+                android:id="@+id/basic_info"
+                tools:text="blablabla"
+                style="@style/InfoText" />
+
+            <TextView
+                android:id="@+id/neighbours"
+                tools:text="blablabla"
+                style="@style/InfoText" />
+
+            <TextView
+                android:id="@+id/ciphering_info"
+                tools:text="blablabla"
+                style="@style/InfoText" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
