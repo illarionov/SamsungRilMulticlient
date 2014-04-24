@@ -1,8 +1,8 @@
 Samsung Ril Multiclient
 =====================
 
-Test application that shown how to exec the `invokeOemRilRequestRaw()` on Samsung phones without any privileges.
-As well as this is done in the [libsecril-client-sap](https://gitorious.org/replicant/hardware_samsung) library.
+A test application that shows how to exec `invokeOemRilRequestRaw()` on Samsung phones without any privileges.
+The same way it's done in the [libsecril-client-sap](https://gitorious.org/replicant/hardware_samsung) library.
 
 ### Requirements
 
