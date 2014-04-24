@@ -162,7 +162,8 @@ public class SamsungMulticlientRilExecutor implements OemRilExecutor {
 
             byte req[] = marshallRequest(token, data);
 
-            if (DBG) Log.v(TAG, String.format("invokeOemRilRequestRaw() token: 0x%X", token));
+            if (DBG) Log.v(TAG, String.format("invokeOemRilRequestRaw() token: 0x%X, header: %s, req: %s ",
+                    token, HexDump.toHexString(getHeader(req)), HexDump.toHexString(req)));
 
             mOutputStream.write(getHeader(req));
             mOutputStream.write(req);
@@ -268,8 +269,14 @@ public class SamsungMulticlientRilExecutor implements OemRilExecutor {
                     }
                     if (endpos >= msgLen + 4) {
                         processRxPacket(buf, 4, msgLen);
+                        int secondPktPos = msgLen + 4;
+                        if (secondPktPos != endpos) {
+                            System.arraycopy(buf, secondPktPos, buf, 0, endpos - secondPktPos);
+                        }
                         endpos -= msgLen + 4;
                     }
+
+                    if (endpos == buf.length) endpos = 0;
                 } catch (IOException e) {
                     disconnect();
                 }
